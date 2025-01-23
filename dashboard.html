@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Care Center</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f7f7f7;
+            color: #333;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #004aad !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff !important;
+        }
+        .nav-link {
+            color: #fff !important;
+            font-size: 1rem;
+            margin-right: 10px;
+        }
+        .nav-link:hover {
+            color: #ffd700 !important;
+            text-decoration: underline;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(to right, #004aad, #0077cc);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.2rem;
+        }
+
+        /* Form Styles */
+        .form-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: -40px;
+        }
+        .form-container label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .form-container input {
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1rem;
+            width: 100%;
+        }
+        .form-container button {
+            background: #004aad;
+            color: white;
+            padding: 12px;
+            border: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        .form-container button:hover {
+            background: #003580;
+        }
+
+        /* Results Section */
+        .result-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .result-container h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .result-buttons button {
+            background: #ffd700;
+            color: black;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .result-buttons button:hover {
+            background: #ffc107;
+        }
+
+        /* Modal Customization */
+        .modal-header {
+            background: #004aad;
+            color: white;
+        }
+        .modal-body {
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Health Care Center</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/developer">Developer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>Welcome to the Health Care Center</h1>
+            <p>Your personalized healthcare assistant</p>
+        </div>
+    </header>
+
+    <!-- Prediction Form -->
+    <div class="container form-container">
+        <h2 class="text-center mb-4">Get a Health Prediction</h2>
+        <form action="/predict" method="POST">
+            <label for="symptoms">Enter Your Symptoms:</label>
+            <input type="text" id="symptoms" name="symptoms" placeholder="e.g., fever, cough, headache">
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+
+    <!-- Results Section -->
+    {% if predicted_disease %}
+    <div class="result-container">
+        <h2>Our AI System Results</h2>
+        <div class="result-buttons">
+            <button data-bs-toggle="modal" data-bs-target="#diseaseModal">Disease</button>
+            <button data-bs-toggle="modal" data-bs-target="#descriptionModal">Description</button>
+            <button data-bs-toggle="modal" data-bs-target="#precautionModal">Precaution</button>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Disease Modal -->
+    <div class="modal fade" id="diseaseModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Predicted Disease</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    {{ predicted_disease }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Description Modal -->
+    <div class="modal fade" id="descriptionModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Disease Description</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    {{ dis_des }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Precaution Modal -->
+    <div class="modal fade" id="precautionModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Precautions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        {% for precaution in my_precautions %}
+                        <li>{{ precaution }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

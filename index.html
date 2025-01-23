@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Disease Prediction</title>
+</head>
+<body>
+    <h1>Enter Your Symptoms</h1>
+    <form method="POST">
+        <label for="symptoms">Symptoms (comma-separated):</label>
+        <input type="text" id="symptoms" name="symptoms">
+        <button type="submit">Predict Disease</button>
+    </form>
+
+    {% if predicted_disease %}
+        <h2>Predicted Disease: {{ predicted_disease }}</h2>
+        <h3>Description:</h3>
+        <p>{{ dis_des }}</p>
+        <h3>Precautions:</h3>
+        <ul>
+            <li>{{ my_precautions[0] }}</li>
+            <li>{{ my_precautions[1] }}</li>
+            <li>{{ my_precautions[2] }}</li>
+            <li>{{ my_precautions[3] }}</li>
+        </ul>
+    {% elif message %}
+        <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>
