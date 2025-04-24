@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediPredict AI - Doctor Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+</head>
+<body class="light-theme">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.svg" alt="MediPredict AI Logo" width="40" height="40">
+                    <h1>MediPredict AI</h1>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#appointments">Appointments</a></li>
+                    <li><a href="#patients">Patients</a></li>
+                    <li><a href="#reports">Reports</a></li>
+                    <li><a href="#messages">Messages</a></li>
+                    <li class="user-profile">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+                             alt="Doctor" class="user-avatar">
+                        <div class="user-info">
+                            <h4>Dr. Sarah Johnson</h4>
+                            <p>Cardiologist</p>
+                        </div>
+                    </li>
+                    <li class="theme-toggle-container">
+                        <div class="theme-toggle">
+                            <input type="checkbox" id="theme-switch" class="theme-switch">
+                            <label for="theme-switch" class="theme-label">
+                                <i class="fas fa-sun"></i>
+                                <i class="fas fa-moon"></i>
+                                <span class="theme-ball"></span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2>Doctor Dashboard</h2>
+                <div class="user-profile">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+                         alt="Doctor" class="user-avatar">
+                    <div class="user-info">
+                        <h4>Dr. Sarah Johnson</h4>
+                        <p>Cardiologist | Last login: Today, 8:45 AM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card" id="appointments">
+                    <div class="card-header">
+                        <h3>Today's Schedule</h3>
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h4>12</h4>
+                            <p>Scheduled</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>5</h4>
+                            <p>Completed</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>2</h4>
+                            <p>Pending</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>1</h4>
+                            <p>Cancelled</p>
+                        </div>
+                    </div>
+                    <div class="appointments-list">
+                        <div class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>John Doe</h4>
+                                <p>Follow-up | 10:30 AM - 10:50 AM</p>
+                                <p class="diagnosis">Hypertension management</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn secondary">Chart</button>
+                                <button class="btn primary">Start</button>
+                            </div>
+                        </div>
+                        <div class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Emily Smith</h4>
+                                <p>New Patient | 11:15 AM - 11:45 AM</p>
+                                <p class="diagnosis">Initial consultation</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn secondary">Chart</button>
+                                <button class="btn primary">Start</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn primary" style="width: 100%; margin-top: 1rem;">View Full Schedule</button>
+                </div>
+
+                <div class="dashboard-card" id="patients">
+                    <div class="card-header">
+                        <h3>Patient Statistics</h3>
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h4>156</h4>
+                            <p>Total Patients</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>42</h4>
+                            <p>New This Month</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>78%</h4>
+                            <p>Follow-up Rate</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>4.8</h4>
+                            <p>Avg. Rating</p>
+                        </div>
+                    </div>
+                    <div class="health-metrics">
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <span class="metric-title">Appointment Types</span>
+                            </div>
+                            <div class="metric-chart" style="height: 150px;">
+                                <div class="chart-bar" style="height: 70%; background-color: var(--primary-color);"></div>
+                                <div class="chart-bar" style="height: 50%; background-color: var(--accent-color);"></div>
+                                <div class="chart-bar" style="height: 30%; background-color: var(--secondary-color);"></div>
+                                <div class="chart-bar" style="height: 60%; background-color: var(--primary-color);"></div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+                                <span style="font-size: 0.8rem;">Follow-ups</span>
+                                <span style="font-size: 0.8rem;">New Patients</span>
+                                <span style="font-size: 0.8rem;">Procedures</span>
+                                <span style="font-size: 0.8rem;">Consultations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card" id="reports">
+                    <div class="card-header">
+                        <h3>Recent Reports</h3>
+                        <i class="fas fa-file-medical-alt"></i>
+                    </div>
+                    <div class="appointments-list">
+                        <div class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>John Doe</h4>
+                                <p>Echocardiogram Results</p>
+                                <p class="diagnosis">Completed: Today, 9:30 AM</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn secondary">View</button>
+                                <button class="btn primary">Share</button>
+                            </div>
+                        </div>
+                        <div class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Michael Brown</h4>
+                                <p>Stress Test Report</p>
+                                <p class="diagnosis">Completed: Yesterday</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn secondary">View</button>
+                                <button class="btn primary">Share</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn primary" style="width: 100%; margin-top: 1rem;">View All Reports</button>
+                </div>
+
+                <div class="dashboard-card" id="messages">
+                    <div class="card-header">
+                        <h3>Messages & Alerts</h3>
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="appointments-list">
+                        <div class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Robert Johnson</h4>
+                                <p>Question about medication dosage...</p>
+                                <p class="diagnosis">Received: Today, 8:15 AM</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn secondary">View</button>
+                                <button class="btn primary">Reply</button>
+                            </div>
+                        </div>
+                        <div class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Lab Results</h4>
+                                <p>New test results available for review</p>
+                                <p class="diagnosis">Received: Today, 7:30 AM</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn secondary">View</button>
+                                <button class="btn primary">Analyze</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn primary" style="width: 100%; margin-top: 1rem;">View All Messages</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
