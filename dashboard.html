@@ -1,220 +1,297 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health Care Center</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Global Styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            background: #f7f7f7;
-            color: #333;
-        }
-
-        /* Navbar Styles */
-        .navbar {
-            background-color: #004aad !important;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .navbar-brand {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #fff !important;
-        }
-        .nav-link {
-            color: #fff !important;
-            font-size: 1rem;
-            margin-right: 10px;
-        }
-        .nav-link:hover {
-            color: #ffd700 !important;
-            text-decoration: underline;
-        }
-
-        /* Header Section */
-        .header {
-            background: linear-gradient(to right, #004aad, #0077cc);
-            color: white;
-            padding: 50px 0;
-            text-align: center;
-        }
-        .header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-        .header p {
-            font-size: 1.2rem;
-        }
-
-        /* Form Styles */
-        .form-container {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            margin-top: -40px;
-        }
-        .form-container label {
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: block;
-        }
-        .form-container input {
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            font-size: 1rem;
-            width: 100%;
-        }
-        .form-container button {
-            background: #004aad;
-            color: white;
-            padding: 12px;
-            border: none;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            width: 100%;
-            transition: background 0.3s;
-        }
-        .form-container button:hover {
-            background: #003580;
-        }
-
-        /* Results Section */
-        .result-container {
-            margin-top: 40px;
-            text-align: center;
-        }
-        .result-container h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        .result-buttons button {
-            background: #ffd700;
-            color: black;
-            border: none;
-            font-size: 1.1rem;
-            font-weight: bold;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        .result-buttons button:hover {
-            background: #ffc107;
-        }
-
-        /* Modal Customization */
-        .modal-header {
-            background: #004aad;
-            color: white;
-        }
-        .modal-body {
-            font-size: 1.1rem;
-        }
-    </style>
+    <title>MediPredict AI - Symptom Analysis & Disease Prediction</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
 </head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
+<body class="light-theme">
+    <div class="background-image"></div>
+    <header>
         <div class="container">
-            <a class="navbar-brand" href="#">Health Care Center</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/developer">Developer</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
-                </ul>
+            <div class="logo">
+                <img src="logo.svg" alt="MediPredict AI Logo" width="40" height="40">
+                <h1>MediPredict AI</h1>
             </div>
-        </div>
-    </nav>
-
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <h1>Welcome to the Health Care Center</h1>
-            <p>Your personalized healthcare assistant</p>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="ai-predictor-nav">
+                        <a href="#demo" class="ai-predictor-btn">AI PREDICTOR</a>
+                    </li>
+                    <li class="auth-buttons">
+                        <a href="login.html" class="btn login">Login</a>
+                        <a href="signup.html" class="btn signup">Sign Up</a>
+                    </li>
+                    <li class="theme-toggle-container">
+                        <div class="theme-toggle">
+                            <input type="checkbox" id="theme-switch" class="theme-switch">
+                            <label for="theme-switch" class="theme-label">
+                                <i class="fas fa-sun"></i>
+                                <i class="fas fa-moon"></i>
+                                <span class="theme-ball"></span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- Prediction Form -->
-    <div class="container form-container">
-        <h2 class="text-center mb-4">Get a Health Prediction</h2>
-        <form action="/predict" method="POST">
-            <label for="symptoms">Enter Your Symptoms:</label>
-            <input type="text" id="symptoms" name="symptoms" placeholder="e.g., fever, cough, headache">
-            <button type="submit">Predict</button>
-        </form>
-    </div>
-
-    <!-- Results Section -->
-    {% if predicted_disease %}
-    <div class="result-container">
-        <h2>Our AI System Results</h2>
-        <div class="result-buttons">
-            <button data-bs-toggle="modal" data-bs-target="#diseaseModal">Disease</button>
-            <button data-bs-toggle="modal" data-bs-target="#descriptionModal">Description</button>
-            <button data-bs-toggle="modal" data-bs-target="#precautionModal">Precaution</button>
-        </div>
-    </div>
-    {% endif %}
-
-    <!-- Disease Modal -->
-    <div class="modal fade" id="diseaseModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Predicted Disease</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>AI-Powered Symptom Analysis & Disease Prediction</h1>
+                <p>Get accurate health assessments and potential disease predictions based on your symptoms using advanced artificial intelligence.</p>
+                <div class="cta-buttons">
+                    <a href="#demo" class="btn primary">Try AI Predictor</a>
+                    <button class="btn secondary">Learn More</button>
                 </div>
-                <div class="modal-body">
-                    {{ predicted_disease }}
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3840&q=80" alt="Doctor using AI technology">
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://img.icons8.com/3d-fluency/94/stethoscope.png" alt="Symptom Analysis">
+                    </div>
+                    <h3>Comprehensive Symptom Analysis</h3>
+                    <p>Our AI evaluates multiple symptoms simultaneously to provide a holistic health assessment.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://img.icons8.com/3d-fluency/94/brain.png" alt="Disease Prediction">
+                    </div>
+                    <h3>Disease Probability Prediction</h3>
+                    <p>Get likelihood percentages for potential conditions based on your symptoms and medical history.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://img.icons8.com/3d-fluency/94/health-data.png" alt="Health Tracking">
+                    </div>
+                    <div class="feature-image">
+                        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3840&q=80" alt="Health tracking dashboard">
+                    </div>
+                    <h3>Personalized Health Tracking</h3>
+                    <p>Monitor your symptoms over time and track changes in your health status.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://img.icons8.com/3d-fluency/94/conference-call.png" alt="Doctor Connection">
+                    </div>
+                    <h3>Healthcare Provider Integration</h3>
+                    <p>Easily share your results with your doctor for professional evaluation.</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Description Modal -->
-    <div class="modal fade" id="descriptionModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Disease Description</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2>How MediPredict AI Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <img src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3840&q=80" alt="Patient describing symptoms">
+                        <h3>Enter Your Symptoms</h3>
+                        <p>Describe your symptoms using our intuitive interface or voice input.</p>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    {{ dis_des }}
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3840&q=80" alt="AI analyzing data">
+                        <h3>AI Analysis</h3>
+                        <p>Our advanced algorithms analyze your symptoms against millions of medical cases.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <img src="https://images.unsplash.com/photo-1581595219315-a187dd40c322?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3840&q=80" alt="Doctor reviewing results">
+                        <h3>Get Your Results</h3>
+                        <p>Receive a detailed report with potential conditions and recommended actions.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Precaution Modal -->
-    <div class="modal fade" id="precautionModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Precautions</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    <section id="demo" class="demo">
+        <div class="container">
+            <h2>AI Predictor</h2>
+            <p class="subheading">Get instant insights about your symptoms from our advanced medical AI</p>
+            <div class="demo-container">
+                <div class="symptom-input">
+                    <h3>Describe Your Symptoms</h3>
+                    <textarea id="symptom-description" placeholder="E.g., headache, fever, cough..."></textarea>
+                    
+                    <div class="symptom-search-container">
+                        <div class="search-box">
+                            <input type="text" id="symptom-search" placeholder="Search symptoms...">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="symptom-dropdown">
+                            <div class="dropdown-content" id="symptom-list"></div>
+                        </div>
+                    </div>
+
+                    <div class="selected-symptoms" id="selected-symptoms"></div>
+
+                    <div class="duration-severity">
+                        <div class="input-group">
+                            <label for="duration">Duration:</label>
+                            <select id="duration">
+                                <option value="1">Less than 1 day</option>
+                                <option value="2">1-3 days</option>
+                                <option value="3" selected>3-7 days</option>
+                                <option value="4">1-2 weeks</option>
+                                <option value="5">More than 2 weeks</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="severity">Severity:</label>
+                            <select id="severity">
+                                <option value="1">Mild</option>
+                                <option value="2" selected>Moderate</option>
+                                <option value="3">Severe</option>
+                                <option value="4">Very Severe</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="analyze-btn" class="btn primary">Analyze Symptoms</button>
                 </div>
-                <div class="modal-body">
+                <div class="results-preview">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3840&q=80" alt="AI Analysis Preview">
+                    <p>Enter your symptoms to see potential conditions and recommended actions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>About MediPredict AI</h2>
+                <p>MediPredict AI is an advanced healthcare assistant that leverages artificial intelligence to analyze symptoms and predict potential diseases. Our system is trained on vast medical datasets and continuously updated with the latest research to provide accurate, personalized health assessments.</p>
+                <p>While our tool provides valuable insights, it's not a substitute for professional medical advice. Always consult with a healthcare provider for diagnosis and treatment.</p>
+                <div class="stats">
+                    <div class="stat">
+                        <h3>95%</h3>
+                        <p>Accuracy Rate</p>
+                    </div>
+                    <div class="stat">
+                        <h3>10M+</h3>
+                        <p>Medical Cases Analyzed</p>
+                    </div>
+                    <div class="stat">
+                        <h3>24/7</h3>
+                        <p>Availability</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3840&q=80" alt="Medical Team">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Have questions about MediPredict AI? Our team is here to help.</p>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>abc@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>xxxxxxxx</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Pune, Maharashtra, India</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.svg" alt="MediPredict AI Logo" width="50" height="50">
+                    <h3>MediPredict AI</h3>
+                    <p>AI-Based Symptom Analysis and Disease Prediction Assistant</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
                     <ul>
-                        {% for precaution in my_precautions %}
-                        <li>{{ precaution }}</li>
-                        {% endfor %}
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
                     </ul>
                 </div>
+                <div class="footer-newsletter">
+                    <h4>Subscribe to Our Newsletter</h4>
+                    <p>Get the latest updates on healthcare AI advancements.</p>
+                    <form id="newsletterForm">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit" class="btn primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MediPredict AI. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
-    </div>
+    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
