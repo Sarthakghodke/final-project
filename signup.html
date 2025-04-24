@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediPredict AI - Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+    <style>
+        .auth-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            max-height: 600px;
+        }
+        .patient-fields, .doctor-fields {
+            display: none;
+        }
+        .patient-fields.show, .doctor-fields.show {
+            display: block;
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.svg" alt="MediPredict AI Logo" width="40" height="40">
+                    <h1>MediPredict AI</h1>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li class="theme-toggle-container">
+                        <div class="theme-toggle">
+                            <input type="checkbox" id="theme-switch" class="theme-switch">
+                            <label for="theme-switch" class="theme-label">
+                                <i class="fas fa-sun"></i>
+                                <i class="fas fa-moon"></i>
+                                <span class="theme-ball"></span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-form-container">
+                <div class="logo" style="margin-bottom: 1.5rem;">
+                    <img src="logo.svg" alt="MediPredict AI Logo" width="40" height="40">
+                    <h1>MediPredict AI</h1>
+                </div>
+                
+                <form id="signupForm" class="auth-form">
+                    <h2>Create Your Account</h2>
+                    <p>Join MediPredict AI to get personalized health insights and predictions</p>
+                    
+                    <div class="user-type-selector">
+                        <div id="patient-btn" class="user-type-btn active">
+                            <i class="fas fa-user"></i>
+                            <p>I'm a Patient</p>
+                        </div>
+                        <div id="doctor-btn" class="user-type-btn">
+                            <i class="fas fa-user-md"></i>
+                            <p>I'm a Doctor</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" placeholder="john@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <div style="position: relative;">
+                            <input type="password" id="signup-password" placeholder="Create a password" required>
+                            <i class="fas fa-eye toggle-password" data-target="signup-password" 
+                               style="position: absolute; right: 15px; top: 15px; cursor: pointer;"></i>
+                        </div>
+                        <div class="strength-meter" style="display: flex; gap: 5px; margin-top: 5px;">
+                            <div class="strength-bar" style="height: 5px; flex: 1; background-color: #ddd; border-radius: 3px;"></div>
+                            <div class="strength-bar" style="height: 5px; flex: 1; background-color: #ddd; border-radius: 3px;"></div>
+                            <div class="strength-bar" style="height: 5px; flex: 1; background-color: #ddd; border-radius: 3px;"></div>
+                        </div>
+                        <p class="strength-text" style="font-size: 0.8rem; margin-top: 5px; color: var(--text-color);">Password strength</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-confirm">Confirm Password</label>
+                        <div style="position: relative;">
+                            <input type="password" id="signup-confirm" placeholder="Confirm your password" required>
+                            <i class="fas fa-eye toggle-password" data-target="signup-confirm" 
+                               style="position: absolute; right: 15px; top: 15px; cursor: pointer;"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Patient Specific Fields -->
+                    <div class="patient-fields show">
+                        <div class="form-group">
+                            <label for="dob">Date of Birth</label>
+                            <input type="date" id="dob" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                                <option value="prefer-not-to-say">Prefer not to say</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="+1 (123) 456-7890" required>
+                        </div>
+                    </div>
+                    
+                    <!-- Doctor Specific Fields -->
+                    <div class="doctor-fields">
+                        <div class="form-group">
+                            <label for="clinic-address">Clinic/Hospital Address</label>
+                            <input type="text" id="clinic-address" placeholder="123 Medical Center Dr, City" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="speciality">Speciality</label>
+                            <select id="speciality" required>
+                                <option value="">Select Speciality</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="pediatrics">Pediatrics</option>
+                                <option value="orthopedics">Orthopedics</option>
+                                <option value="dermatology">Dermatology</option>
+                                <option value="general">General Practitioner</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="experience">Years of Experience</label>
+                            <input type="number" id="experience" placeholder="5" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="license">Medical License Number</label>
+                            <input type="text" id="license" placeholder="State License Number" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="remember-me">
+                            <input type="checkbox" id="terms" required>
+                            <label for="terms">I agree to the Terms of Service and Privacy Policy</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn primary" style="width: 100%;">Create Account</button>
+                    
+                    <div class="social-auth">
+                        <a href="https://accounts.google.com" class="social-btn google">
+                            <i class="fab fa-google"></i>
+                            <span>Sign up with Google</span>
+                        </a>
+                        <a href="https://facebook.com" class="social-btn facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Sign up with Facebook</span>
+                        </a>
+                    </div>
+                    
+                    <div class="auth-alt">
+                        Already have an account? <a href="login.html">Log in</a>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="auth-image">
+                <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3840&q=80" 
+                     alt="Doctor and patient discussing">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeSwitch = document.getElementById('theme-switch');
+            const body = document.body;
+            
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-theme');
+                if (themeSwitch) themeSwitch.checked = true;
+            }
+            
+            if (themeSwitch) {
+                themeSwitch.addEventListener('change', function() {
+                    if (this.checked) {
+                        body.classList.add('dark-theme');
+                        localStorage.setItem('theme', 'dark');
+                    } else {
+                        body.classList.remove('dark-theme');
+                        localStorage.setItem('theme', 'light');
+                    }
+                });
+            }
+
+            // User type selection
+            const patientBtn = document.getElementById('patient-btn');
+            const doctorBtn = document.getElementById('doctor-btn');
+            const patientFields = document.querySelector('.patient-fields');
+            const doctorFields = document.querySelector('.doctor-fields');
+
+            patientBtn.addEventListener('click', function() {
+                patientBtn.classList.add('active');
+                doctorBtn.classList.remove('active');
+                patientFields.classList.add('show');
+                doctorFields.classList.remove('show');
+            });
+
+            doctorBtn.addEventListener('click', function() {
+                doctorBtn.classList.add('active');
+                patientBtn.classList.remove('active');
+                doctorFields.classList.add('show');
+                patientFields.classList.remove('show');
+            });
+
+            // Password toggle functionality
+            document.querySelectorAll('.toggle-password').forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    const input = document.getElementById(target);
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        this.classList.replace('fa-eye', 'fa-eye-slash');
+                    } else {
+                        input.type = 'password';
+                        this.classList.replace('fa-eye-slash', 'fa-eye');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
