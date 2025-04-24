@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediPredict AI - Patient Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+</head>
+<body class="light-theme">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.svg" alt="MediPredict AI Logo" width="40" height="40">
+                    <h1>MediPredict AI</h1>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#health-metrics">Health</a></li>
+                    <li><a href="#appointments">Appointments</a></li>
+                    <li><a href="#medical-history">History</a></li>
+                    <li><a href="#medications">Medications</a></li>
+                    <li class="ai-predictor-nav">
+                        <a href="#ai-predictor" class="ai-predictor-btn">AI PREDICTOR</a>
+                    </li>
+                    <li class="user-profile">
+                        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="User" class="user-avatar">
+                        <div class="user-info">
+                            <h4>John Doe</h4>
+                            <p>Patient</p>
+                        </div>
+                    </li>
+                    <li class="theme-toggle-container">
+                        <div class="theme-toggle">
+                            <input type="checkbox" id="theme-switch" class="theme-switch">
+                            <label for="theme-switch" class="theme-label">
+                                <i class="fas fa-sun"></i>
+                                <i class="fas fa-moon"></i>
+                                <span class="theme-ball"></span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2>Patient Dashboard</h2>
+                <div class="user-profile">
+                    <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                         alt="User" class="user-avatar">
+                    <div class="user-info">
+                        <h4>John Doe</h4>
+                        <p>Last login: Today, 10:30 AM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card" id="health-metrics">
+                    <div class="card-header">
+                        <h3>Health Summary</h3>
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h4>72</h4>
+                            <p>BPM</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>120/80</h4>
+                            <p>BP</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>98.6°F</h4>
+                            <p>Temp</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>98%</h4>
+                            <p>Oxygen</p>
+                        </div>
+                    </div>
+                    <div class="health-metrics">
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <span class="metric-title">Weight</span>
+                                <span class="metric-value">68 kg</span>
+                            </div>
+                            <div class="metric-change positive">
+                                <i class="fas fa-arrow-down"></i>
+                                <span>1.2 kg decrease</span>
+                            </div>
+                            <div class="metric-chart">
+                                <div class="chart-bar" style="height: 30%;"></div>
+                                <div class="chart-bar" style="height: 50%;"></div>
+                                <div class="chart-bar" style="height: 70%;"></div>
+                                <div class="chart-bar" style="height: 60%;"></div>
+                                <div class="chart-bar" style="height: 40%;"></div>
+                                <div class="chart-bar" style="height: 30%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card" id="appointments">
+                    <div class="card-header">
+                        <h3>Upcoming Appointments</h3>
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="appointments-list">
+                        <div class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Dr. Sarah Johnson</h4>
+                                <p>Cardiology | Tomorrow, 10:00 AM</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn secondary">Reschedule</button>
+                                <button class="btn primary">Join</button>
+                            </div>
+                        </div>
+                        <div class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Dr. Michael Chen</h4>
+                                <p>General Checkup | June 15, 2:30 PM</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn secondary">Details</button>
+                                <button class="btn primary">Prepare</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn primary" style="width: 100%; margin-top: 1rem;">Book New Appointment</button>
+                </div>
+
+                <div class="dashboard-card" id="medical-history">
+                    <div class="card-header">
+                        <h3>Medical History</h3>
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <div class="appointments-list">
+                        <div class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Annual Checkup</h4>
+                                <p>Completed | May 15, 2023</p>
+                                <p class="diagnosis">Diagnosis: Healthy, no issues found</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn secondary">View</button>
+                                <button class="btn primary">Share</button>
+                            </div>
+                        </div>
+                        <div class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Flu Vaccination</h4>
+                                <p>Completed | October 10, 2022</p>
+                                <p class="diagnosis">Vaccine: Fluzone Quadrivalent</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn secondary">View</button>
+                                <button class="btn primary">Share</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn primary" style="width: 100%; margin-top: 1rem;">View Full History</button>
+                </div>
+
+                <div class="dashboard-card" id="medications">
+                    <div class="card-header">
+                        <h3>Current Medications</h3>
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="appointments-list">
+                        <div class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Atorvastatin</h4>
+                                <p>20mg | Once daily</p>
+                                <p class="diagnosis">For cholesterol management</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn secondary">Info</button>
+                                <button class="btn primary">Refill</button>
+                            </div>
+                        </div>
+                        <div class="appointment-item">
+                            <div class="appointment-info">
+                                <h4>Vitamin D</h4>
+                                <p>1000 IU | Once daily</p>
+                                <p class="diagnosis">Supplement</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn secondary">Info</button>
+                                <button class="btn primary">Refill</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn primary" style="width: 100%; margin-top: 1rem;">Request New Medication</button>
+                </div>
+            </div>
+
+            <div class="dashboard-ai-predictor" id="ai-predictor">
+                <h2>AI Symptom Predictor</h2>
+                <p class="subheading">Get instant insights about your symptoms from our advanced medical AI</p>
+                <div class="demo-container">
+                    <div class="symptom-input">
+                        <h3>Describe Your Symptoms</h3>
+                        <textarea id="symptom-description" placeholder="E.g., headache, fever, cough..."></textarea>
+                        
+                        <div class="symptom-search-container">
+                            <div class="search-box">
+                                <input type="text" id="symptom-search" placeholder="Search symptoms...">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="symptom-dropdown">
+                                <div class="dropdown-content" id="symptom-list"></div>
+                            </div>
+                        </div>
+
+                        <div class="selected-symptoms" id="selected-symptoms"></div>
+
+                        <div class="duration-severity">
+                            <div class="input-group">
+                                <label for="duration">Duration:</label>
+                                <select id="duration">
+                                    <option value="1">Less than 1 day</option>
+                                    <option value="2">1-3 days</option>
+                                    <option value="3" selected>3-7 days</option>
+                                    <option value="4">1-2 weeks</option>
+                                    <option value="5">More than 2 weeks</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="severity">Severity:</label>
+                                <select id="severity">
+                                    <option value="1">Mild</option>
+                                    <option value="2" selected>Moderate</option>
+                                    <option value="3">Severe</option>
+                                    <option value="4">Very Severe</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button id="analyze-btn" class="btn primary">Analyze Symptoms</button>
+                    </div>
+                    <div class="results-preview">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3840&q=80" alt="AI Analysis Preview">
+                        <p>Enter your symptoms to see potential conditions and recommended actions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
